@@ -1,110 +1,308 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>慢日子研究所 | Slow Days Lab</title>
+
 <style>
-body{margin:0;font-family:Microsoft JhengHei,sans-serif;background:#F5EFE2;color:#4d3a2f;line-height:1.8}
-header{padding:60px 20px;text-align:center;background:#f8f1e6}
-header img{width:180px}
-h1{font-size:3em;margin:10px 0}
-nav{background:#7A4A32;padding:15px;text-align:center;position:sticky;top:0}
-nav a{color:#fff;text-decoration:none;margin:0 15px}
-section{max-width:1100px;margin:auto;padding:60px 20px}
-.card{background:#fff;border-radius:15px;padding:30px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.hero{font-size:1.3em}
-.quote{text-align:center;font-style:italic;color:#7A4A32}
-.btn{background:#E89A2C;color:white;padding:12px 24px;border-radius:8px;text-decoration:none}
-footer{background:#7A4A32;color:white;text-align:center;padding:30px}
+
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei",sans-serif;
+    background:#F5EFE2;
+    color:#4d3a2f;
+    line-height:1.8;
+}
+
+header{
+    padding:60px 20px;
+    text-align:center;
+    background:#f8f1e6;
+}
+
+header img{
+    width:180px;
+}
+
+h1{
+    font-size:3em;
+    margin:10px 0;
+}
+
+.hero{
+    font-size:1.3em;
+    font-weight:bold;
+}
+
+nav{
+    background:#7A4A32;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:1.05em;
+}
+
+nav a:hover{
+    color:#FFD699;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.btn{
+    background:#E89A2C;
+    color:white;
+    padding:12px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.quote{
+    text-align:center;
+    font-style:italic;
+    color:#7A4A32;
+    padding:30px;
+}
+
+footer{
+    background:#7A4A32;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+#slideshow{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.news{
+    font-size:1.1em;
+    color:#7A4A32;
+    font-weight:bold;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+}
+
 </style>
+
 </head>
+
 <body>
 
 <header>
+
 <img src="logo.png" alt="慢日子研究所">
+
 <h1>慢日子研究所</h1>
+
 <p class="hero">記錄風景，收藏時光。</p>
+
 <p>
+
 在忙碌的生活裡，
-總有一些值得停下腳步欣賞的風景。<br><br>
+總有一些值得停下腳步欣賞的風景。
+
+<br><br>
 
 一段旅程、
 一次展覽、
 一張照片、
-一個平凡卻難忘的午後。<br><br>
+一個平凡卻難忘的午後。
+
+<br><br>
 
 《慢日子研究所》記錄旅行途中遇見的美景，
-分享攝影作品、展覽心得與生活觀察。<br><br>
+分享攝影作品、展覽心得與生活觀察。
+
+<br><br>
 
 希望透過文字與影像，
-把那些容易被忽略的感動收藏起來。<br><br>
+把那些容易被忽略的感動收藏起來。
+
+<br><br>
 
 歡迎一起走進慢日子，
 發現生活中的美好風景。
+
 </p>
-<p><a class="btn" href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg" target="_blank">前往 YouTube 頻道</a></p>
+
+<p>
+
+<a class="btn"
+href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg"
+target="_blank">
+前往 YouTube 頻道 </a>
+
+</p>
+
 </header>
 
 <nav>
-<a href="./">首頁</a>
-<a href="#travel">旅行札記</a>
-<a href="#gallery">攝影分享</a>
-<a href="#about">關於我</a>
-<a href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg" target="_blank">YouTube</a>
+
+<a href="./">首頁</a> <a href="./travel/">旅行札記</a> <a href="./photography/">攝影分享</a> <a href="./exhibition/">展覽心得</a> <a href="./about/">關於我</a> <a href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg" target="_blank">YouTube</a>
+
 </nav>
 
-<section id="about">
+<section>
+
 <div class="card">
-<h2>關於我</h2>
-<p>
-大家好，我是 CY。<br><br>
 
-喜歡騎車旅行、攝影、看展覽，也喜歡用自己的步調感受生活。<br><br>
+<h2>📢 最新消息</h2>
 
-《慢日子研究所》是一個記錄美景、旅行與生活點滴的地方。<br><br>
+<marquee class="news" behavior="scroll" direction="left">
 
-在忙碌的日常裡，我相信總有一些值得停下腳步欣賞的風景；
-一條安靜的山路、一片夕陽、一座展覽館，或是一個讓人放鬆的午後。<br><br>
+歡迎來到慢日子研究所 ｜ 新影片即將上線 ｜ 旅行札記持續更新 ｜ 感謝您的來訪
 
-希望透過這個網站與 YouTube 頻道，分享旅途中遇見的美好事物，以及那些讓生活變得更有溫度的時刻。<br><br>
+</marquee>
 
-歡迎一起走進慢日子，發現生活中的小確幸。
-</p>
 </div>
-</section>
 
-<section id="youtube">
-<div class="card">
-<h2>慢日子研究所 YouTube</h2>
-<p>歡迎訂閱頻道，一起欣賞旅途中遇見的風景與故事。</p>
-<p><a class="btn" href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg">訂閱頻道</a></p>
-</div>
-</section>
-
-<section id="travel">
-<div class="card">
-<h2>旅行札記</h2>
-<p>未來可分享機車旅行、山海風景、美術館與展覽紀錄。</p>
-</div>
-</section>
-
-<section id="gallery">
-<div class="card">
-<h2>攝影分享</h2>
-<p>用鏡頭收藏每一段值得回味的時光。</p>
-</div>
 </section>
 
 <section>
-<p class="quote">
-「慢一點，不是停下來，而是讓自己有機會看見更多風景。」
+
+<div class="card">
+
+<h2>📷 精選照片</h2>
+
+<img
+id="slideshow"
+src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200"
+alt="精選照片">
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>🎬 YouTube 頻道</h2>
+
+<p>
+
+歡迎前往慢日子研究所 YouTube 頻道，
+觀看旅行、美景與生活紀錄。
+
 </p>
+
+<p>
+
+<a class="btn"
+href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg"
+target="_blank">
+立即觀看 </a>
+
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card">
+
+<h2>📝 最新文章</h2>
+
+<ul>
+
+<li>2026/06/24－慢日子研究所正式上線</li>
+
+<li>2026/06/25－第一篇旅行札記準備中</li>
+
+<li>2026/06/26－攝影作品整理中</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section>
+
+<p class="quote">
+
+「慢一點，不是停下來，而是讓自己有機會看見更多風景。」
+
+</p>
+
 </section>
 
 <footer>
+
 © 2026 Slow Days Lab | 慢日子研究所
+
 </footer>
+
+<script>
+
+const images = [
+
+"https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
+
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+
+"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
+
+"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
+
+];
+
+let current = 0;
+
+setInterval(() => {
+
+current++;
+
+if(current >= images.length){
+
+current = 0;
+
+}
+
+document.getElementById("slideshow").src = images[current];
+
+}, 5000);
+
+</script>
 
 </body>
 </html>
