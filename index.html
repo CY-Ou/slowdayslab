@@ -1,336 +1,674 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="慢日子研究所 Slow Days Lab，分享出遊照片、旅行影片與慢慢生活的紀錄。">
+  <title>慢日子研究所 | Slow Days Lab</title>
+  <style>
+    :root {
+      --paper: #f5efe2;
+      --paper-soft: #fbf6ec;
+      --coffee: #704630;
+      --coffee-dark: #4d3326;
+      --clay: #b66f3d;
+      --sun: #e89a2c;
+      --sage: #6f7f63;
+      --ink: #3f3128;
+      --muted: #76665c;
+      --line: rgba(112, 70, 48, 0.18);
+      --shadow: 0 18px 45px rgba(77, 51, 38, 0.12);
+    }
 
-<title>慢日子研究所 | Slow Days Lab</title>
+    * { box-sizing: border-box; }
 
-<style>
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(232, 154, 44, 0.16), transparent 30rem),
+        linear-gradient(180deg, var(--paper-soft), var(--paper));
+      color: var(--ink);
+      line-height: 1.75;
+    }
 
-body{
-    margin:0;
-    font-family:"Microsoft JhengHei",sans-serif;
-    background:#F5EFE2;
-    color:#4d3a2f;
-    line-height:1.8;
-}
+    a { color: inherit; }
 
-header{
-    padding:60px 20px;
-    text-align:center;
-    background:#f8f1e6;
-}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 246, 236, 0.92);
+      backdrop-filter: blur(16px);
+    }
 
-.main-logo{
-width:220px;
-height:auto;
-display:block;
-margin:0 auto 20px auto;
-}
+    .nav-wrap {
+      width: min(1160px, calc(100% - 32px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-header{
-text-align:center;
-padding:50px 20px;
-background:#F5EFE2;
-}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      min-width: 210px;
+    }
 
-h1{
-font-size:4rem;
-margin:10px 0;
-color:#4d3a2f;
-}
+    .brand img {
+      display: block;
+      width: min(230px, 48vw);
+      height: auto;
+    }
 
-.hero{
-font-size:1.5rem;
-color:#7A4A32;
-font-weight:bold;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
+    .nav-links a,
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 9px 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
 
+    .nav-links a {
+      color: var(--coffee-dark);
+    }
 
-nav{
-    background:#7A4A32;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:999;
-}
+    .nav-links a:hover {
+      background: rgba(112, 70, 48, 0.09);
+    }
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 15px;
-    font-size:1.05em;
-}
+    .button {
+      border: 0;
+      color: #fff;
+      background: var(--coffee);
+      box-shadow: 0 8px 22px rgba(112, 70, 48, 0.22);
+    }
 
-nav a:hover{
-    color:#FFD699;
-}
+    .button.secondary {
+      background: var(--sage);
+      box-shadow: none;
+    }
 
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:30px 20px;
-}
+    .hero {
+      width: min(1160px, calc(100% - 32px));
+      min-height: calc(100svh - 76px);
+      margin: 0 auto;
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+      gap: 42px;
+      align-items: center;
+    }
 
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--clay);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
 
-.btn{
-    background:#E89A2C;
-    color:white;
-    padding:12px 24px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
+    h1, h2, h3, p { margin-top: 0; }
 
-.btn:hover{
-    opacity:.9;
-}
+    h1 {
+      margin-bottom: 18px;
+      color: var(--coffee-dark);
+      font-size: clamp(2.45rem, 6vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
 
-.quote{
-    text-align:center;
-    font-style:italic;
-    color:#7A4A32;
-    padding:30px;
-}
+    .hero-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
 
-footer{
-    background:#7A4A32;
-    color:white;
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-}
+    .hero-copy span {
+      display: block;
+    }
 
-#slideshow{
-    width:100%;
-    height:500px;
-    object-fit:cover;
-    border-radius:10px;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
 
-.news{
-    font-size:1.1em;
-    color:#7A4A32;
-    font-weight:bold;
-}
+    .hero-panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.48);
+      box-shadow: var(--shadow);
+    }
 
-ul{
-    padding-left:20px;
-}
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(135deg, rgba(112, 70, 48, 0.92), rgba(111, 127, 99, 0.86)),
+        url("assets/SlowDaysLab_Logo_Square.png") center / 42% no-repeat;
+    }
 
-li{
-    margin-bottom:12px;
-}
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-</style>
+    .panel-caption {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border-top: 1px solid var(--line);
+      background: #fffaf1;
+    }
 
+    .panel-caption img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .panel-caption strong {
+      display: block;
+      color: var(--coffee-dark);
+      line-height: 1.35;
+    }
+
+    .panel-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    main section {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 58px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      color: var(--coffee-dark);
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .about p {
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-note {
+      padding: 26px;
+      border-left: 6px solid var(--sun);
+      border-radius: 8px;
+      background: #fffaf1;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 132px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--coffee);
+      font-size: 1.75rem;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .post-grid,
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .post-card,
+    .photo-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+      box-shadow: 0 10px 28px rgba(77, 51, 38, 0.08);
+    }
+
+    .post-media,
+    .photo-media {
+      min-height: 210px;
+      display: flex;
+      align-items: end;
+      padding: 18px;
+      background: linear-gradient(135deg, rgba(112, 70, 48, 0.9), rgba(182, 111, 61, 0.78));
+      color: #fff;
+    }
+
+    .post-card:nth-child(2) .post-media,
+    .photo-card:nth-child(2) .photo-media {
+      background: linear-gradient(135deg, rgba(111, 127, 99, 0.9), rgba(112, 70, 48, 0.74));
+    }
+
+    .post-card:nth-child(3) .post-media,
+    .photo-card:nth-child(3) .photo-media {
+      background: linear-gradient(135deg, rgba(232, 154, 44, 0.86), rgba(77, 51, 38, 0.82));
+    }
+
+    .post-media span,
+    .photo-media span {
+      display: inline-flex;
+      border-radius: 8px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.18);
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .post-body {
+      padding: 20px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--coffee-dark);
+      font-size: 1.2rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .post-body p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--clay);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .youtube-band {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+      gap: 24px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--coffee-dark);
+      color: #fff8ef;
+      box-shadow: var(--shadow);
+    }
+
+    .youtube-band h2 {
+      color: #fff8ef;
+    }
+
+    .youtube-band p {
+      color: rgba(255, 248, 239, 0.78);
+    }
+
+    .youtube-band .button {
+      background: var(--sun);
+      color: var(--coffee-dark);
+      box-shadow: none;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+    }
+
+    .photo-card {
+      min-height: 300px;
+    }
+
+    .photo-card.large {
+      grid-row: span 2;
+    }
+
+    .photo-card.large .photo-media {
+      min-height: 618px;
+    }
+
+    .photo-media {
+      height: 100%;
+      min-height: 300px;
+    }
+
+    .site-footer {
+      margin-top: 42px;
+      background: var(--coffee-dark);
+      color: #fff8ef;
+    }
+
+    .footer-inner {
+      width: min(1160px, calc(100% - 32px));
+      min-height: 150px;
+      margin: 0 auto;
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-inner img {
+      width: 210px;
+      max-width: 52vw;
+      filter: brightness(1.12);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      color: #fff8ef;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (max-width: 880px) {
+      .nav-wrap,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links,
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .about,
+      .youtube-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 46px;
+      }
+
+      .post-grid,
+      .gallery-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card.large .photo-media {
+        min-height: 300px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links a,
+      .button {
+        width: 100%;
+      }
+
+      .nav-links,
+      .hero-actions {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2.35rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-
-<img src="./assets/images/logo/logo-circle.png"
-  class="main-logo"
-  alt="慢日子研究所">
-
-<h1>慢日子研究所</h1>
-
-<p class="hero">
-記錄風景，收藏時光。
-</p>
-
-</header>
-
-<p>
-
-在忙碌的生活裡，
-總有一些值得停下腳步欣賞的風景。
-
-<br><br>
-
-一段旅程、
-一次展覽、
-一張照片、
-一個平凡卻難忘的午後。
-
-<br><br>
-
-《慢日子研究所》記錄旅行途中遇見的美景，
-分享攝影作品、展覽心得與生活觀察。
-
-<br><br>
-
-希望透過文字與影像，
-把那些容易被忽略的感動收藏起來。
-
-<br><br>
-
-歡迎一起走進慢日子，
-發現生活中的美好風景。
-
-</p>
-
-<p>
-
-<a class="btn"
-href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg"
-target="_blank">
-前往 YouTube 頻道 </a>
-
-</p>
-
-</header>
-
-<nav>
-
-<a href="./">首頁</a>
-
-<a href="./travel/">旅行札記</a>
-
-<a href="./photography/">攝影分享</a>
-
-<a href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg"
-target="_blank">
-YouTube
-</a>
-
-</nav>
-
-<section>
-
-<div class="card">
-
-<h2>📢 最新消息</h2>
-
-<marquee class="news" behavior="scroll" direction="left">
-
-歡迎來到慢日子研究所 ｜ 新影片即將上線 ｜ 旅行札記持續更新 ｜ 感謝您的來訪
-
-</marquee>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>📷 精選照片</h2>
-
-<img
-id="slideshow"
-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200"
-alt="精選照片">
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>🎬 YouTube 頻道</h2>
-
-<p>
-
-歡迎前往慢日子研究所 YouTube 頻道，
-觀看旅行、美景與生活紀錄。
-
-</p>
-
-<p>
-
-<a class="btn"
-href="https://www.youtube.com/channel/UCCOvKZQOwOnIG_aTujG8yPg"
-target="_blank">
-立即觀看 </a>
-
-</p>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>📝 最新文章</h2>
-
-<ul>
-
-<li>2026/06/24－慢日子研究所正式上線</li>
-
-<li>2026/06/25－第一篇旅行札記準備中</li>
-
-<li>2026/06/26－攝影作品整理中</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section>
-
-<p class="quote">
-
-「慢一點，不是停下來，而是讓自己有機會看見更多風景。」
-
-</p>
-
-</section>
-
-<footer>
-
-© 2026 Slow Days Lab | 慢日子研究所
-
-</footer>
-
-<script>
-
-const images = [
-
-"https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200",
-
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
-
-"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200",
-
-"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
-
-];
-
-let current = 0;
-
-setInterval(() => {
-
-current++;
-
-if(current >= images.length){
-
-current = 0;
-
-}
-
-document.getElementById("slideshow").src = images[current];
-
-}, 5000);
-
-</script>
-
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="慢日子研究所首頁">
+        <img src="assets/SlowDaysLab_Logo_Horizontal.png" alt="慢日子研究所 Slow Days Lab">
+      </a>
+      <nav class="nav-links" aria-label="主選單">
+        <a href="#about">關於</a>
+        <a href="#posts">文章</a>
+        <a href="#gallery">相簿</a>
+        <a href="#youtube">YouTube</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">記錄風景，收藏時光。</p>
+        <h1 id="hero-title">慢日子研究所</h1>
+        <p class="hero-copy">
+          <span>在忙碌的生活裡，</span>
+          <span>總有一些值得停下腳步欣賞的風景。</span>
+          <br>
+          <span>一段旅程、</span>
+          <span>一次展覽、</span>
+          <span>一張照片、</span>
+          <span>一個平凡卻難忘的午後。</span>
+          <br>
+          <span>《慢日子研究所》記錄旅行途中遇見的美景，</span>
+          <span>分享攝影作品、展覽心得與生活觀察。</span>
+          <br>
+          <span>希望透過文字與影像，</span>
+          <span>把那些容易被忽略的感動收藏起來。</span>
+          <br>
+          <span>歡迎一起走進慢日子，</span>
+          <span>發現生活中的美好風景。</span>
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="https://www.youtube.com/@cyou0914" target="_blank" rel="noopener">前往 YouTube</a>
+          <a class="button secondary" href="#posts">瀏覽最新分享</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="YouTube 頻道預覽">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=UUCOvKZQOwOnIG_aTujG8yPg"
+            title="慢日子研究所 YouTube 最新影片"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="panel-caption">
+          <img src="assets/SlowDaysLab_Logo_Square.png" alt="慢日子研究所 YouTube Logo">
+          <div>
+            <strong>慢日子研究所 YouTube</strong>
+            <span>@cyou0914，旅行影片與生活紀錄持續更新。</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow">About Slow Days Lab</p>
+        <h2 id="about-title">記錄風景，收藏時光。</h2>
+        <p>
+          《慢日子研究所》記錄旅行途中遇見的美景，
+          分享攝影作品、展覽心得與生活觀察。
+          希望透過文字與影像，把那些容易被忽略的感動收藏起來。
+        </p>
+      </div>
+      <div class="about-note">
+        <p>
+          在忙碌的生活裡，總有一些值得停下腳步欣賞的風景。
+          歡迎一起走進慢日子，發現生活中的美好風景。
+        </p>
+        <div class="stats" aria-label="網站內容類型">
+          <div class="stat"><strong>Photo</strong><span>出遊照片與精選相簿</span></div>
+          <div class="stat"><strong>Video</strong><span>YouTube 影片與短片紀錄</span></div>
+          <div class="stat"><strong>Note</strong><span>路線、心得與生活筆記</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="posts" aria-labelledby="posts-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Latest Stories</p>
+          <h2 id="posts-title">最新分享</h2>
+          <p>近期的旅行照片、影片紀錄與生活筆記會整理在這裡。</p>
+        </div>
+      </div>
+
+      <div class="post-grid">
+        <article class="post-card">
+          <div class="post-media"><span>旅行照片</span></div>
+          <div class="post-body">
+            <div class="meta"><span>Photo Journal</span><span>2026</span></div>
+            <h3>一日小旅行：把沿途風景慢慢收進相簿</h3>
+            <p>從出門到回程，把天氣、路線與停下來拍照的瞬間都留下來。</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-media"><span>YouTube</span></div>
+          <div class="post-body">
+            <div class="meta"><span>Video</span><span>@cyou0914</span></div>
+            <h3>最新影片：旅途中值得留下的一分鐘</h3>
+            <p>用影像補上照片之外的聲音、步伐，以及抵達時的心情。</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-media"><span>慢生活</span></div>
+          <div class="post-body">
+            <div class="meta"><span>Slow Note</span><span>Diary</span></div>
+            <h3>散步、咖啡與午後：沒有行程的日子</h3>
+            <p>除了旅行，也能記錄日常片段，讓網站保有慢日子研究所的溫度。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Gallery</p>
+          <h2 id="gallery-title">照片相簿</h2>
+          <p>把出遊時最喜歡的畫面整理成一面牆，慢慢回看也很舒服。</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="photo-card large"><div class="photo-media"><span>主視覺照片</span></div></article>
+        <article class="photo-card"><div class="photo-media"><span>風景</span></div></article>
+        <article class="photo-card"><div class="photo-media"><span>餐桌</span></div></article>
+        <article class="photo-card"><div class="photo-media"><span>路上</span></div></article>
+        <article class="photo-card"><div class="photo-media"><span>住宿</span></div></article>
+      </div>
+    </section>
+
+    <section id="youtube" aria-labelledby="youtube-title">
+      <div class="youtube-band">
+        <div>
+          <p class="eyebrow">YouTube Channel</p>
+          <h2 id="youtube-title">影片會放在 YouTube，網站負責把故事串起來。</h2>
+          <p>
+            頻道會持續整理出遊影片、生活片段與路上的小發現。
+            來網站看故事，也到 YouTube 看完整影像。
+          </p>
+          <a class="button" href="https://www.youtube.com/@cyou0914" target="_blank" rel="noopener">開啟頻道</a>
+        </div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=UUCOvKZQOwOnIG_aTujG8yPg"
+            title="慢日子研究所 YouTube 播放清單"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <img src="assets/SlowDaysLab_Logo_Horizontal.png" alt="慢日子研究所 Slow Days Lab">
+        <p>© 2026 慢日子研究所 Slow Days Lab</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://cy-ou.github.io/slowdayslab/" target="_blank" rel="noopener">網站</a>
+        <a href="https://github.com/CY-Ou/slowdayslab" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.youtube.com/@cyou0914" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
